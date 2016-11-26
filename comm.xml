@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <Response>
-	<Sms>
-		F1R5T P05T!
-	</Sms>
+    <Message>Hello World!</Message>
+    <Redirect>https://demo.twilio.com/welcome/sms/reply/</Redirect>
 </Response>
