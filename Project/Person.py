@@ -1,0 +1,22 @@
+class Person:
+
+
+    def __init__(self, phone_number, diagnosis, gender, name = "Anon"):
+        """
+        Instantiate an instance of a Person.
+
+        :param phone_number: int
+            The phone number of this person
+        :param name: str
+            The name of this person
+        :type name:
+        :param diagnosis: str
+            The diagnosis
+        :param gender: str
+            The gender of this person
+        :rtype: None
+        """
+        self.phone_number = phone_number
+        self.diagnosis = diagnosis
+        self.gender = gender
+        self.name = name
