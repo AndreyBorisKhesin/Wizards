@@ -3,6 +3,7 @@ import time
 import twilio.twiml
 import sys
 sys.path.append("C:\\Users\\Andrey\\Documents\\Wizards\\Project")
+print(sys.path)
 import response
 
 app = Flask(__name__)

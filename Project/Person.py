@@ -63,9 +63,8 @@ class Person:
         return keys
 
 if __name__ == "__main__":
-    p1 = Person("0", "Alive", "Male")
-    m1 = Message(p1, "SOS #sNoring# #Abdominal pain# #black StOOls# SOS")
-    p1.chatlog = [m1]
-    p1.name = "Isaac"
-    print(p1.getSymptomCodes())
-    print(p1.symptoms)
+    p1 = Person("0")
+    p1.gender = "f"
+    p1.age = 20
+
+
