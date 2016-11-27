@@ -43,8 +43,9 @@ class Response:
 							if not cpeep.symptoms.__contains__(newsymp):
 								cpeep.symptoms.append(newsymp)
 							i = j + 1
+							j += 1
 							break
-					j += 2
+					j += 1
 			i += 1
 		if cpeep.gender == "":
 			if textmessage1 == "f" or textmessage1 == "m":
