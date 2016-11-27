@@ -1,10 +1,9 @@
 from flask import Flask, request, redirect
 import time
 import twilio.twiml
-#import sys
-#sys.path.append("C:\\Users\\Andrey\\Documents\\Wizards\\Project")
-from . import response
-#import response
+import sys
+sys.path.append("C:\\Users\\Andrey\\Documents\\Wizards\\Project")
+import response
 
 app = Flask(__name__)
 
