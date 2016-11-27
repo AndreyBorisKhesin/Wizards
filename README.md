@@ -8,9 +8,9 @@ third world countries, such as Bangladesh.
 
 ## How It Works
 
-TextMD uses _ Twilio _ as a relay to send text messages.
-It runs a local server using _ Flask _ that is tunneled to public access using _ ngrok _ .
-TextMD uses the _ infermedica _ API to diagnose the possible conditions afflicting the user based on their stated symptoms, gender, and age.
+TextMD uses _Twilio_ as a relay to send text messages.
+It runs a local server using _Flask_ that is tunneled to public access using _ngrok_.
+TextMD uses the _infermedica_ API to diagnose the possible conditions afflicting the user based on their stated symptoms, gender, and age.
 If the user requests immediate help, TextMD directs a patient to a local
 emergency service telephone number.
 
