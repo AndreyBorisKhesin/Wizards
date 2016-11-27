@@ -8,6 +8,8 @@ class Response:
 
 	@staticmethod
 	def generateresponse(phonenumber, textmessage, timestamp):
+		if textmessage is None:
+			return
 		"""
 		Generate a response given a phone number and message
 
