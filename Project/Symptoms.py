@@ -7,7 +7,10 @@ class Symptoms:
 
     def getSymptomKey(self, description):
         lower = description.lower()
-        return Symptoms.symptoms[lower]
+        try:
+            return Symptoms.symptoms[lower]
+        except:
+            x = 0
 
 '''
 if __name__ == "__main__":
