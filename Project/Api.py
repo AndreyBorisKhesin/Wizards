@@ -34,7 +34,6 @@ class Api:
                 result.append(request.conditions[i]['name'])
             except:
                 x = 0
-        print(api.symptoms_list())
         return result
 
 
