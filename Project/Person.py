@@ -1,9 +1,9 @@
-from Message import Message
+from message import Message
 from Symptoms import Symptoms
 
 class Person:
 
-    def __init__(self, phone_number, diagnosis, gender,
+    def __init__(self, phone_number, diagnosis = "", gender = "",
                  chatlog = [], name = "Anon"):
         """
         Instantiate an instance of a Person.
