@@ -51,7 +51,7 @@ class Response:
 			if textmessage1 == "f" or textmessage1 == "m":
 				cpeep.gender = textmessage1
 			else:
-				return "What is your gender? Please enter F for female and M for male."
+				return ("" if found else "You've reached TextMD. Please provide us with your basic information to help us perform a diagnosis.\n") + "What is your gender? Please enter F for female and M for male."
 		if cpeep.gender != "" and cpeep.age == -1:
 			try:
 				age = int(textmessage1)
