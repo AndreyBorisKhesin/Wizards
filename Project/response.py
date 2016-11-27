@@ -47,8 +47,6 @@ class Response:
 						newsymp += textmessage1[j]
 					j += 1
 			i += 1
-		if textmessage1[-1] == "!":
-			return str(cpeep.symptoms)
 		if cpeep.gender == "":
 			if textmessage1 == "f" or textmessage1 == "m":
 				cpeep.gender = textmessage1
