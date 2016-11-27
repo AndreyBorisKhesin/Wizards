@@ -63,19 +63,22 @@ class Person:
         return output
 
     def getSymptomCodes(self):
-        symptoms = self.findsymptoms()
-        s = Symptoms
+        """
+        :return: the list of API codes corresponding to each of the symptoms the patient described
+        :rtype: list[String]
+        """
+        symptoms = self.findSymptoms()
+        s = Symptoms()
         keys = []
         for i in symptoms:
-            keys.append(s.getSymptomKey(i))
-
-
+            key = s.getSymptomKey(i)
+            keys.append(key)
+        return keys
 
 if __name__ == "__main__":
     p1 = Person("0", "Alive", "Male")
-    m1 = Message(p1, "SOS #MissiNg eYeBALL# #HeAdache# #decapitated# SOS")
+    m1 = Message(p1, "SOS #sNoring# #Abdominal pain# #black StOOls# SOS")
     p1.chatlog = [m1]
     p1.name = "Isaac"
-    for c in p1.findSymptoms():
-        print(c)
     print(p1.findSymptoms())
+    print(p1.getSymptomCodes())
