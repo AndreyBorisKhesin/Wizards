@@ -10,13 +10,6 @@ class Response:
 	def generateresponse(phonenumber, textmessage, timestamp):
 		if textmessage is None:
 			return
-		"""
-		Generate a response given a phone number and message
-
-		:param phonenumber: string
-		:param message: string
-		:return:
-		"""
 		textmessage1 = textmessage.lower()
 		found = False
 		# Check if the person exists in the list of people
@@ -46,7 +39,9 @@ class Response:
 							i = j + 1
 							break
 					j += 1
-				i += 1
+			i += 1
+		return str(len(cpeep.symptoms))
+		'''
 		if cpeep.gender == "":
 			if textmessage1 == "f" or textmessage1 == "m":
 				cpeep.gender = textmessage1
@@ -76,15 +71,4 @@ class Response:
 			   		keys)
 				return "In order of likelyhood, you might have one of the following:\n" + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "."
 			else:
-				return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"
-
-
-if __name__ == "__main__":
-    print(Response.generateresponse("+16470000000", "AAAAA I GOT HIT BY A SPEEDING NEUMANN", 1))
-    print(Response.generateresponse("+16470000000", "f", 2))
-    print(Response.generateresponse("+16470000000", "150", 3))
-    print(Response.generateresponse("+16470000000", "#Headache##stomach ache#**", 5))
-
-
-
-
+				return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"'''
