@@ -1,4 +1,4 @@
-import Symptoms.Symptoms
+import Symptoms
 
 class Person:
 
@@ -54,7 +54,7 @@ class Person:
         :rtype: list[String]
         """
         self.findSymptoms()
-        s = Symptoms()
+        s = Symptoms.Symptoms()
         keys = []
         for i in self.symptoms:
             key = s.getSymptomKey(i)
