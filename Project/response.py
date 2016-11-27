@@ -78,9 +78,11 @@ class Response:
 
 
 if __name__ == "__main__":
-	print(Response.generateresponse(11, "I'm dying, help!", 0))
-	print(Response.generateresponse(11, "2", 0))
-	print(Response.generateresponse(11, "M", 0))
-	print(Response.generateresponse(11, "2", 0))
-	print(Response.generateresponse(11, "#headache#", 0))
+    print(Response.generateresponse("+16470000000", "AAAAA I GOT HIT BY A SPEEDING NEUMANN", 1))
+    print(Response.generateresponse("+16470000000", "f", 2))
+    print(Response.generateresponse("+16470000000", "150", 3))
+    print(Response.generateresponse("+16470000000", "#Headache##stomach ache#**", 5))
+
+
+
 
