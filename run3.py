@@ -21,7 +21,7 @@ def hello_monkey():
     #    message = "Monkey, thanks for the message!"
 
     resp = twilio.twiml.Response()
-    resp.message(request.values.get('FromCity', None))
+    resp.message(request.values.get('Body', None))
 
     return str(resp)
 
