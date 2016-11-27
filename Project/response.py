@@ -2,7 +2,6 @@ import Person
 import Api
 import Symptoms
 
-
 class Response:
 	people = []
 
@@ -12,12 +11,18 @@ class Response:
 			return
 		textmessage1 = textmessage.lower()
 		found = False
+		delete = None
 		# Check if the person exists in the list of people
 		for p in range(len(Response.people)):
 			if Response.people[p].phone_number == phonenumber:
-				found = True
+				if textmessage1 == "clear":
+					delete = p
+				else:
+					found = True
 				# current person
 				cpeep = Response.people[p]
+		if not (delete is None):
+			del(Response.people[delete])
 		if (not found):
 			newp = Person.Person(phonenumber)
 			Response.people.append(newp)
@@ -68,6 +73,6 @@ class Response:
 						"male" if cpeep.gender == "m" else "female",
 						cpeep.age,
 			   		keys)
-				return "In order of likelyhood, you might have one of the following:\n" + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "."
+				return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "."
 			else:
-				return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"
+				return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nType the word \"CLEAR\" to clear your information.\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"
