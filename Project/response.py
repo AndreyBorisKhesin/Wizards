@@ -25,7 +25,7 @@ class Response:
 		#finds all symptoms in hashes in text
 		i = 0
 		while i < len(textmessage1):
-			if textmessage1 == "#":
+			if textmessage1[i] == "#":
 				newsymp = ""
 				j = i + 1
 				while j < (len(textmessage1)):
@@ -40,13 +40,11 @@ class Response:
 							break
 					j += 1
 			i += 1
-		return str(len(cpeep.symptoms))
-		'''
 		if cpeep.gender == "":
 			if textmessage1 == "f" or textmessage1 == "m":
 				cpeep.gender = textmessage1
 			else:
-				return "What is your gender? Please enter F for Female and M for Male"
+				return "What is your gender? Please enter F for Female and M for Male"	
 		if cpeep.gender != "" and cpeep.age == -1:
 			try:
 				age = int(textmessage1)
@@ -56,6 +54,8 @@ class Response:
 					return "How old are you?"
 			except ValueError:
 				return ("How old are you?")
+		return cpeep.age
+		'''
 		if cpeep.gender != "" and cpeep.age >= 0:
 			if textmessage1[-2:] == "**":
 				if len(cpeep.symptoms) == 0:
