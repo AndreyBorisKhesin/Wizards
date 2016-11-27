@@ -54,8 +54,6 @@ class Response:
 					return "How old are you?"
 			except ValueError:
 				return ("How old are you?")
-		return cpeep.age
-		'''
 		if cpeep.gender != "" and cpeep.age >= 0:
 			if textmessage1[-2:] == "**":
 				if len(cpeep.symptoms) == 0:
@@ -71,4 +69,4 @@ class Response:
 			   		keys)
 				return "In order of likelyhood, you might have one of the following:\n" + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "."
 			else:
-				return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"'''
+				return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"
