@@ -35,18 +35,20 @@ class Response:
 				newsymp = ""
 				j = i + 1
 				while j < (len(textmessage1)):
-					newsymp = newsymp + textmessage1[j]
 					if (textmessage1[j] == "#"):
 						if newsymp != "#":
 							l = len(newsymp) - 1
-							newsymp = newsymp[0:l].lower()
+							newsymp = newsymp.lower()
 							if not cpeep.symptoms.__contains__(newsymp):
 								cpeep.symptoms.append(newsymp)
-							i = j + 1
-							j += 1
+							i = j
 							break
+					else:
+						newsymp += textmessage1[j]
 					j += 1
 			i += 1
+		if textmessage1[-1] == "!":
+			return str(cpeep.symptoms)
 		if cpeep.gender == "":
 			if textmessage1 == "f" or textmessage1 == "m":
 				cpeep.gender = textmessage1
