@@ -1,12 +1,12 @@
-## TextMD
+# TextMD
 
-# Introduction
+## Introduction
 TextMD is an interactive server accessible through SMS that can diagnose a
 patient's condition in real time and direct a patient to an emergency service if needed.
 It can be used to help improve dissemination of health care knowledge of
 third world countries, such as Bangladesh.
 
-# How It Works
+## How It Works
 
 TextMD uses _ Twilio _ as a relay to send text messages.
 It runs a local server using _ Flask _ that is tunneled to public access using _ ngrok _ .
