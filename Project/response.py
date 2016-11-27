@@ -17,7 +17,7 @@ class Response:
         :return:
         :rtype:
         """
-        textmessage1 = textmessage.upper()
+        textmessage1 = textmessage.lower()
         found = False
         for p in range(len(Response.people)):
             if Response.people[p].phone_number == phonenumber:
@@ -27,8 +27,25 @@ class Response:
             newp = Person(phonenumber)
             Response.people.append(newp)
             cpeep = newp
+        i = 0
+        while i < len(msg.content):
+            if textmessage1 == "#":
+                newsymp = ""
+                    j = i + 1
+                    while j < (len(msg.content)):
+                        newsymp = newsymp + textmessage1[j]
+                        if (msg.content[j] == "#"):
+                            if newsymp != "#":
+                                l = len(newsymp) - 1
+                                newsymp = newsymp[0:l].lower()
+                                if not cpeep.symptoms.__contains__(newsymp):
+                                    cpeep.symptoms.append(newsymp)
+                                i = j + 1
+                                break
+                        j += 1
+                i += 1
         if cpeep.gender == "":
-            if textmessage1 == "F" or textmessage1 == "M":
+            if textmessage1 == "f" or textmessage1 == "m":
                 cpeep.gender = textmessage1
             else:
                 return "What is your gender? Please enter F for Female and M for Male"
