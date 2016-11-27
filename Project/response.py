@@ -39,7 +39,7 @@ class Response:
 						if newsymp != "#":
 							l = len(newsymp) - 1
 							newsymp = newsymp.lower()
-							if not cpeep.symptoms.__contains__(newsymp):
+							if not cpeep.symptoms.__contains__(newsymp) and len(newsymp) > 0:
 								cpeep.symptoms.append(newsymp)
 							i = j
 							break
