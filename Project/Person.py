@@ -49,7 +49,7 @@ class Person:
                                if newsymp != "#":
                                     l = len(newsymp) - 1
                                     newsymp = newsymp[0:l]
-                                    output.append(newsymp)
+                                    output.append(newsymp.lower())
                                     i = j + 1
                                     break
                             j = j + 1
@@ -73,7 +73,7 @@ class Person:
 
 if __name__ == "__main__":
     p1 = Person("0", "Alive", "Male")
-    m1 = Message(p1, "SOS #missing eyeball# #headache# #decapitated# SOS")
+    m1 = Message(p1, "SOS #MissiNg eYeBALL# #HeAdache# #decapitated# SOS")
     p1.chatlog = [m1]
     p1.name = "Isaac"
     for c in p1.findSymptoms():
