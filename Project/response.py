@@ -83,7 +83,7 @@ class Response:
 					Response.cases.append(item)
 					return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "." + "\n" + "Do you require professional help? Reply with '#' if you want a number to call for professional help."
 				elif len(conditions) >= 1 and len(error) != 0:
-					return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "." + "\n" + "Do you require professional help? Reply with '#' if you want a number to call for professional help." + "\n" + + "The following symptoms you entered are not in our database: " + str(error) + ". Please reword the symptoms."
+					return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "." + "\n" + "Do you require professional help? Reply with '#' if you want a number to call for professional help." + "\n" + "The following symptoms you entered are not in our database: " + str(error) + ". Please reword the symptoms."
 				else:
 					return "There are no matching conditions for your symptoms. \n" + "The following symptoms you entered are not in our database: " + str(error) + ". Please reword the symptoms."
 			elif textmessage1 == "#":
