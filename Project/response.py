@@ -69,7 +69,7 @@ class Response:
 				for symptom in cpeep.symptoms:
 					s = Symptoms.Symptoms()
 					k = s.getSymptomKey(symptom)
-					if s is not None:
+					if k is not None:
 						keys.append(s.getSymptomKey(symptom))
 					else:
 						error.append(symptom)
