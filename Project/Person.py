@@ -1,3 +1,4 @@
+
 class Person:
 
     def __init__(self, phone_number, diagnosis, gender,
@@ -10,7 +11,7 @@ class Person:
         :param name: str
             The name of this person
         :type name:
-        :param diagnosis: str
+        :param diagnosis: Diagnosis
             The diagnosis
         :param gender: str
             The gender of this person
@@ -23,3 +24,10 @@ class Person:
         self.gender = gender
         self.name = name
         self.chatlog = chatlog
+
+print("meep")
+x = Person(1, "dead", "attack helicopter")
+print(x.diagnosis)
+y = Message(x, "hello")
+print(y.content)
+
