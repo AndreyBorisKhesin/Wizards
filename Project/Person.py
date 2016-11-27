@@ -1,3 +1,4 @@
+from message import Message
 
 class Person:
 
@@ -25,9 +26,35 @@ class Person:
         self.name = name
         self.chatlog = chatlog
 
-print("meep")
-x = Person(1, "dead", "attack helicopter")
-print(x.diagnosis)
-y = Message(x, "hello")
-print(y.content)
+    def findsymptoms(self):
+        output = []
+        for msg in self.chatlog:
+            if msg.p == self:
+                for i in range(len(msg.content)):
+                    if msg.content[i] == "#":
+                        newsymp = ""
+                        j = i + 1
+                        while j < (len(msg.content)):
+                            newsymp = newsymp + msg.content[j]
+                            if (msg.content[j] == "#"):
+                               if newsymp != "#":
+                                    l = len(newsymp) - 1
+                                    newsymp = newsymp[0:l]
+                                    output.append(newsymp)
+                                    break
+                            j = j + 1
+        for s in output:
+            if s == " ":
+                output.remove(s)
+        return output
 
+
+
+if __name__ == "__main__":
+    p1 = Person("0", "Alive", "Male")
+    m1 = Message(p1, "SOS #missing eyeball# #headache# #decapitated# SOS")
+    p1.chatlog = [m1]
+    p1.name = "Isaac"
+    for c in p1.findsymptoms():
+        print(c)
+    print(p1.findsymptoms())
