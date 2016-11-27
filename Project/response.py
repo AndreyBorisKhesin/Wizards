@@ -30,21 +30,21 @@ class Response:
             cpeep = newp
         #finds all symptoms in hashes in text
         i = 0
-        while i < len(msg.content):
+        while i < len(textmessage1):
             if textmessage1 == "#":
                 newsymp = ""
-                    j = i + 1
-                    while j < (len(msg.content)):
-                        newsymp = newsymp + textmessage1[j]
-                        if (msg.content[j] == "#"):
-                            if newsymp != "#":
-                                l = len(newsymp) - 1
-                                newsymp = newsymp[0:l].lower()
-                                if not cpeep.symptoms.__contains__(newsymp):
-                                    cpeep.symptoms.append(newsymp)
-                                i = j + 1
-                                break
-                        j += 1
+                j = i + 1
+                while j < (len(textmessage1)):
+                    newsymp = newsymp + textmessage1[j]
+                    if (textmessage1[j] == "#"):
+                        if newsymp != "#":
+                            l = len(newsymp) - 1
+                            newsymp = newsymp[0:l].lower()
+                            if not cpeep.symptoms.__contains__(newsymp):
+                                cpeep.symptoms.append(newsymp)
+                            i = j + 1
+                            break
+                    j += 1
                 i += 1
         if cpeep.gender == "":
             if textmessage1 == "f" or textmessage1 == "m":
@@ -80,6 +80,7 @@ class Response:
                         + "."
             else:
                 return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"
+
 
 if __name__ == "__main__":
     print(Response.generateresponse(11, "I'm dying, help!", 0))

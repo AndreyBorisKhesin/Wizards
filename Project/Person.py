@@ -21,6 +21,8 @@ class Person:
         :rtype: None
         """
         self.phone_number = phone_number
+        self.gender = ""
+        self.symptoms = []
 
     '''
     def __init__(self, phone_number=-1, gender = "", age=-1, symptoms = []):
