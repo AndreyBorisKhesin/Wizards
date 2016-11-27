@@ -1,5 +1,7 @@
 import Message
 import Person
+import Api
+import numpy.min
 
 
 class Response:
@@ -26,6 +28,7 @@ class Response:
             newp = Person(phonenumber)
             Response.people.append(newp)
             cpeep = newp
+        #finds all symptoms in hashes in text
         i = 0
         while i < len(msg.content):
             if textmessage1 == "#":
@@ -58,7 +61,25 @@ class Response:
             except ValueError:
                 return ("How old are you?")
         if cpeep.gender != "" and cpeep.age >= 0:
-            return "Please enter all relevant symptoms. Symptoms should be between two hashes, for instance, #headache#."
+            if textmessage1[-2:] == "**":
+                if len(cpeep.symptoms) == 0:
+                    return "Please enter at least one symptom."
+                keys = []
+                for symptom in cpeep.symptoms:
+                    keys.append(getSymptomKey(symptom))
+                a = Api("male" if cpeep.gender == "m" else "female",
+                        cpeep.age)
+                conditions = c.get_conditions(
+                        "male" if cpeep.gender == "m" else "female",
+                        cpeep.age,
+                        keys)
+                return "In order of likelyhood, you might have one of the following:\n"
+                        + conditions[0]
+                        + ("" if len(conditions) < 2 else (", " + conditions[1])
+                        + ("" if len(conditions) < 3 else (", " + conditions[2])
+                        + "."
+            else:
+                return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"
 
 if __name__ == "__main__":
     print(Response.generateresponse(11, "I'm dying, help!", 0))
