@@ -1,7 +1,7 @@
 import Message
 import Person
 import Api
-import numpy.min
+import Symptoms
 
 
 class Response:
@@ -66,10 +66,10 @@ class Response:
                     return "Please enter at least one symptom."
                 keys = []
                 for symptom in cpeep.symptoms:
-                    keys.append(getSymptomKey(symptom))
+                    keys.append(Symptoms.getSymptomKey(symptom))
                 a = Api("male" if cpeep.gender == "m" else "female",
                         cpeep.age)
-                conditions = c.get_conditions(
+                conditions = a.get_conditions(
                         "male" if cpeep.gender == "m" else "female",
                         cpeep.age,
                         keys)
@@ -83,8 +83,5 @@ class Response:
 
 
 if __name__ == "__main__":
-    print(Response.generateresponse(11, "I'm dying, help!", 0))
-    print(Response.generateresponse(11, "2", 0))
-    print(Response.generateresponse(11, "M", 0))
-    print(Response.generateresponse(11, "2", 0))
-    print(Response.generateresponse(11, "#headache#", 0))
+    print(Response.generateresponse("647-123-4567"))
+
