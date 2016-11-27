@@ -27,10 +27,18 @@ class Person:
         self.chatlog = chatlog
 
     def findsymptoms(self):
+        """
+        Returns a list of reported symptoms from the individual's
+        chatlog.
+
+        :rtype: List[String]
+            A list of all symptoms.
+        """
         output = []
         for msg in self.chatlog:
             if msg.p == self:
-                for i in range(len(msg.content)):
+                i = 0
+                while i < len(msg.content):
                     if msg.content[i] == "#":
                         newsymp = ""
                         j = i + 1
@@ -41,11 +49,16 @@ class Person:
                                     l = len(newsymp) - 1
                                     newsymp = newsymp[0:l]
                                     output.append(newsymp)
+                                    i = j + 1
                                     break
                             j = j + 1
+                    i = i + 1
+
+        """
         for s in output:
             if s == " ":
                 output.remove(s)
+        """
         return output
 
 
