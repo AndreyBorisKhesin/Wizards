@@ -26,13 +26,14 @@ class Person:
         self.gender = gender
         self.name = name
         self.chatlog = chatlog
+        self.symptoms = []
 
     def findSymptoms(self):
         """
         Returns a list of reported symptoms from the individual's
         chatlog.
 
-        :rtype: List[String]
+        :rtype: None
             A list of all symptoms.
         """
         output = []
@@ -48,18 +49,15 @@ class Person:
                             if (msg.content[j] == "#"):
                                if newsymp != "#":
                                     l = len(newsymp) - 1
-                                    newsymp = newsymp[0:l]
-                                    output.append(newsymp.lower())
+                                    newsymp = newsymp[0:l].lower()
+                                    if not self.symptoms.__contains__(newsymp):
+                                        self.symptoms.append(newsymp)
                                     i = j + 1
                                     break
                             j = j + 1
                     i = i + 1
 
-        """
-        for s in output:
-            if s == " ":
-                output.remove(s)
-        """
+
         return output
 
     def getSymptomCodes(self):
@@ -67,10 +65,10 @@ class Person:
         :return: the list of API codes corresponding to each of the symptoms the patient described
         :rtype: list[String]
         """
-        symptoms = self.findSymptoms()
+        self.findSymptoms()
         s = Symptoms()
         keys = []
-        for i in symptoms:
+        for i in self.symptoms:
             key = s.getSymptomKey(i)
             keys.append(key)
         return keys
@@ -80,5 +78,5 @@ if __name__ == "__main__":
     m1 = Message(p1, "SOS #sNoring# #Abdominal pain# #black StOOls# SOS")
     p1.chatlog = [m1]
     p1.name = "Isaac"
-    print(p1.findSymptoms())
     print(p1.getSymptomCodes())
+    print(p1.symptoms)
