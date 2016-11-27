@@ -1,6 +1,6 @@
 import infermedica_api
 
-class Conditions:
+class Api:
 
     def __init__(self, sex, age):
         self.sex = sex
@@ -32,7 +32,9 @@ class Conditions:
            result.append(request.conditions[i]['name'])
         return result
 
+"""
 if __name__ == '__main__':
-    c = Conditions("male", 20)
+    c = Api("male", 20)
     conditions = c.get_conditions("male", 20, ['s_11', 's_97', 's_107'])
     print(conditions)
+"""
