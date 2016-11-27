@@ -77,8 +77,10 @@ class Response:
 				if len(conditions) >= 1:
 					item = [conditions[0], city, timestamp]
 					Response.cases.append(item)
-					return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "."
+					return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "." + "\n" + "Do you require professional help? Reply with '#' if you want a number to call for professional help."
 				else:
 					return "There are no matching conditions for your symptoms."
+			elif textmessage1 == "#":
+				return "Please call 519-653-7700 for the Waterloo Regional Police Service (non-emergency)."
 			else:
 				return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nType the word \"CLEAR\" to clear your information.\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"
