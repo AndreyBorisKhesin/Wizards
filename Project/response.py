@@ -1,5 +1,5 @@
-from message import Message
-from Person import*
+import Message
+import Person
 
 
 class Response:
@@ -10,18 +10,17 @@ class Response:
         """
         Generate a response given a phone number and message
 
-        :param phonenumber:
-        :type phonenumber:
-        :param message:
-        :type message:
+        :param phonenumber: string
+        :param message: string
         :return:
-        :rtype:
         """
         textmessage1 = textmessage.upper()
         found = False
+        # Check if the person exists in the list of people
         for p in range(len(Response.people)):
             if Response.people[p].phone_number == phonenumber:
                 found = True
+                # current person
                 cpeep = Response.people[p]
         if (not found):
             newp = Person(phonenumber)

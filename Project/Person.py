@@ -1,8 +1,28 @@
-from message import Message
-from Symptoms import Symptoms
+import Message
+import Symptoms
 
 class Person:
 
+    def __init__(self, phone_number=-1):
+        """
+        Instantiate an instance of a Person.
+
+        :param phone_number: int
+            The phone number of this person
+        :param name: str
+            The name of this person
+        :type name:
+        :param diagnosis: Diagnosis
+            The diagnosis
+        :param gender: str
+            The gender of this person
+        :param chatlog: List of Messages
+
+        :rtype: None
+        """
+        self.phone_number = phone_number
+
+    '''
     def __init__(self, phone_number=-1, gender = "", age=-1, symptoms = []):
         """
         Instantiate an instance of a Person.
@@ -24,6 +44,7 @@ class Person:
         self.gender = gender
         self.age = age
         self.symptoms = []
+    '''
 
     def findSymptoms(self):
         """
