@@ -44,7 +44,7 @@ class Response:
 								cpeep.symptoms.append(newsymp)
 							i = j + 1
 							break
-					j += 1
+					j += 2
 			i += 1
 		if cpeep.gender == "":
 			if textmessage1 == "f" or textmessage1 == "m":
