@@ -27,8 +27,10 @@ class Api:
                 request.add_symptom(symptoms[i], 'present')
             except:
                 x = 0
-
-        request = api.diagnosis(request)
+        try:
+            request = api.diagnosis(request)
+        except:
+            y = 0
         result = []
 
         # get list of possible conditions
