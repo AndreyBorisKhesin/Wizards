@@ -15,6 +15,6 @@ def generateresponse(phonenumber, text):
     sender = Person(phonenumber)
     fm1 = Message(sender, text)
     sender.chatlog = [fm1]
-    symptoms = sender.findSymptoms()
-    possible_conditions = get_conditions(gender, age, )
+    symptoms = sender.getSymptomCodes()
+    possible_conditions = get_conditions(gender, age, symptoms)
 
