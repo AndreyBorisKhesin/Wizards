@@ -24,7 +24,7 @@ class Response:
 				# current person
 				cpeep = Response.people[p]
 		if (not found):
-			newp = Person(phonenumber)
+			newp = Person.Person(phonenumber)
 			Response.people.append(newp)
 			cpeep = newp
 		#finds all symptoms in hashes in text
