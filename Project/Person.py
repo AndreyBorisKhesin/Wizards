@@ -1,4 +1,5 @@
-from message import Message
+from Message import Message
+from Symptoms import Symptoms
 
 class Person:
 
@@ -26,7 +27,7 @@ class Person:
         self.name = name
         self.chatlog = chatlog
 
-    def findsymptoms(self):
+    def findSymptoms(self):
         """
         Returns a list of reported symptoms from the individual's
         chatlog.
@@ -61,6 +62,13 @@ class Person:
         """
         return output
 
+    def getSymptomCodes(self):
+        symptoms = self.findsymptoms()
+        s = Symptoms
+        keys = []
+        for i in symptoms:
+            keys.append(s.getSymptomKey(i))
+
 
 
 if __name__ == "__main__":
@@ -68,6 +76,6 @@ if __name__ == "__main__":
     m1 = Message(p1, "SOS #missing eyeball# #headache# #decapitated# SOS")
     p1.chatlog = [m1]
     p1.name = "Isaac"
-    for c in p1.findsymptoms():
+    for c in p1.findSymptoms():
         print(c)
-    print(p1.findsymptoms())
+    print(p1.findSymptoms())
