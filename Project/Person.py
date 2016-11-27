@@ -63,6 +63,10 @@ class Person:
         return output
 
     def getSymptomCodes(self):
+        """
+        :return: the list of API codes corresponding to each of the symptoms the patient described
+        :rtype: list[String]
+        """
         symptoms = self.findSymptoms()
         s = Symptoms()
         keys = []
