@@ -60,7 +60,8 @@ class Response:
 					return "Please enter at least one symptom."
 				keys = []
 				for symptom in cpeep.symptoms:
-					keys.append(Symptoms.Symptoms.getSymptomKey(symptom))
+					s = Symptoms.Symptoms()
+					keys.append(s.getSymptomKey(symptom))
 				a = Api.Api("male" if cpeep.gender == "m" else "female",
 						cpeep.age)
 				conditions = a.get_conditions(

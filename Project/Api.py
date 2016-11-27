@@ -28,7 +28,7 @@ class Api:
         request = api.diagnosis(request)
         result = []
         # get list of possible conditions
-        for i in range(max(len(request.conditions[i]), 3)):
+        for i in range(min(len(request.conditions), 3)):
            result.append(request.conditions[i]['name'])
         return result
 
