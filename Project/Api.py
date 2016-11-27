@@ -28,13 +28,14 @@ class Api:
         request = api.diagnosis(request)
         result = []
         # get list of possible conditions
-        for i in range(len(request.conditions)):
+        for i in range(max(len(request.conditions[i]), 3)):
            result.append(request.conditions[i]['name'])
         return result
 
-"""
+'''
 if __name__ == '__main__':
     c = Api("male", 20)
     conditions = c.get_conditions("male", 20, ['s_11', 's_97', 's_107'])
     print(conditions)
-"""
+'''
+
