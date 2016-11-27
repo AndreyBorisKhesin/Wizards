@@ -4,9 +4,10 @@ import Symptoms
 
 class Response:
 	people = []
+	cases = []
 
 	@staticmethod
-	def generateresponse(phonenumber, textmessage, timestamp):
+	def generateresponse(phonenumber, textmessage, city, timestamp):
 		if textmessage is None:
 			return
 		textmessage1 = textmessage.lower()
@@ -73,6 +74,8 @@ class Response:
 						"male" if cpeep.gender == "m" else "female",
 						cpeep.age,
 			   		keys)
+				item = [conditions[0], city, timestamp]
+				Response.cases.append(item)
 				return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "."
 			else:
 				return "Please enter all relevant symptoms in between two hashes (e.g. #headache#).\nType the word \"CLEAR\" to clear your information.\nEnd your message with ** to receive your diagnosis. (DISCLAIMER: This is not to be used as medical advice. For a complete diagnosis, it is advised that you seek professional help.)"
