@@ -27,15 +27,21 @@ class Api:
 
         request = api.diagnosis(request)
         result = []
+
         # get list of possible conditions
         for i in range(min(len(request.conditions), 3)):
-           result.append(request.conditions[i]['name'])
+            try:
+                result.append(request.conditions[i]['name'])
+            except:
+                x = 0
+        print(api.symptoms_list())
         return result
 
 
 if __name__ == '__main__':
     c = Api("male", 20)
-    conditions = c.get_conditions("male", 20, ['s_11', 's_97', 's_107'])
+    conditions = c.get_conditions("male", 20, ['s_21', 's_98', 's_107'])
     print(conditions)
+
 
 
