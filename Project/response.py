@@ -1,7 +1,7 @@
 from Person import Person
 from message import Message
 
-def generateresponse(person, text):
+def generateresponse(phonenumber, textmessage, timestamp):
     """
     Generate a response given a phone number and message
 
@@ -12,5 +12,3 @@ def generateresponse(person, text):
     :return:
     :rtype:
     """
-
-
