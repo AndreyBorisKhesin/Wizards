@@ -1,2 +1,17 @@
-# Wizards
-A text message based processor for aiding clients with mental and general health issues.
+## TextMD
+
+# Introduction
+TextMD is an interactive server accessible through SMS that can diagnose a
+patient's condition in real time and direct a patient to an emergency service if needed.
+It can be used to help improve dissemination of health care knowledge of
+third world countries, such as Bangladesh.
+
+# How It Works
+
+TextMD uses _ Twilio _ as a relay to send text messages.
+It runs a local server using _ Flask _ that is tunneled to public access using _ ngrok _ .
+TextMD uses the _ infermedica _ API to diagnose the possible conditions afflicting the user based on their stated symptoms, gender, and age.
+If the user requests immediate help, TextMD directs a patient to a local
+emergency service telephone number.
+
+TextMD also storers the diagnosed diseases matched to their geographical location for later use by government agencies.
