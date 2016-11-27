@@ -3,8 +3,8 @@ from Symptoms import Symptoms
 
 class Person:
 
-    def __init__(self, phone_number, diagnosis = "", gender = "",
-                 chatlog = [], name = "Anon"):
+    def __init__(self, phone_number=0, diagnosis = "", gender = "",
+                 chatlog = []):
         """
         Instantiate an instance of a Person.
 
@@ -24,7 +24,6 @@ class Person:
         self.phone_number = phone_number
         self.diagnosis = diagnosis
         self.gender = gender
-        self.name = name
         self.chatlog = chatlog
 
     def findSymptoms(self):

@@ -1,7 +1,7 @@
 from Person import Person
 from message import Message
 
-def generateresponse(phonenumber, text):
+def generateresponse(person, text):
     """
     Generate a response given a phone number and message
 
@@ -12,9 +12,5 @@ def generateresponse(phonenumber, text):
     :return:
     :rtype:
     """
-    sender = Person(phonenumber)
-    fm1 = Message(sender, text)
-    sender.chatlog = [fm1]
-    symptoms = sender.getSymptomCodes()
-    possible_conditions = get_conditions(gender, age, symptoms)
+
 
