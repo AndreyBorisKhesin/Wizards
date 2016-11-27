@@ -1,13 +1,12 @@
-import Message
 import Symptoms
 
 class Person:
 
-    def __init__(self, phone_number=-1):
+    def __init__(self, phone_number=""):
         """
         Instantiate an instance of a Person.
 
-        :param phone_number: int
+        :param phone_number: str
             The phone number of this person
         :param name: str
             The name of this person
@@ -55,16 +54,18 @@ class Person:
         :rtype: list[String]
         """
         self.findSymptoms()
-        s = Symptoms()
+        s = Symptoms.Symptoms()
         keys = []
         for i in self.symptoms:
             key = s.getSymptomKey(i)
             keys.append(key)
         return keys
 
+'''
 if __name__ == "__main__":
     p1 = Person("0")
     p1.gender = "f"
     p1.age = 20
+'''
 
 

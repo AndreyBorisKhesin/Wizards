@@ -65,8 +65,8 @@ class Response:
 					return "Please enter at least one symptom."
 				keys = []
 				for symptom in cpeep.symptoms:
-					keys.append(Symptoms.getSymptomKey(symptom))
-				a = Api("male" if cpeep.gender == "m" else "female",
+					keys.append(Symptoms.Symptoms.getSymptomKey(symptom))
+				a = Api.Api("male" if cpeep.gender == "m" else "female",
 						cpeep.age)
 				conditions = a.get_conditions(
 						"male" if cpeep.gender == "m" else "female",
@@ -78,9 +78,11 @@ class Response:
 
 
 if __name__ == "__main__":
-	print(Response.generateresponse(11, "I'm dying, help!", 0))
-	print(Response.generateresponse(11, "2", 0))
-	print(Response.generateresponse(11, "M", 0))
-	print(Response.generateresponse(11, "2", 0))
-	print(Response.generateresponse(11, "#headache#", 0))
+    print(Response.generateresponse("+16470000000", "AAAAA I GOT HIT BY A SPEEDING NEUMANN", 1))
+    print(Response.generateresponse("+16470000000", "f", 2))
+    print(Response.generateresponse("+16470000000", "150", 3))
+    print(Response.generateresponse("+16470000000", "#Headache##stomach ache#**", 5))
+
+
+
 
