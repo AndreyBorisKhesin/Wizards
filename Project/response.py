@@ -54,7 +54,7 @@ class Response:
 		if cpeep.gender != "" and cpeep.age == -1:
 			try:
 				age = int(textmessage1)
-				if age >= 0:
+				if 0 <= age <= 150 :
 					cpeep.age = age
 				else:
 					return "How old are you?"
