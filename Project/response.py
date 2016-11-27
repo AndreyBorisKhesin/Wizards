@@ -74,7 +74,8 @@ class Response:
 						"male" if cpeep.gender == "m" else "female",
 						cpeep.age,
 			   		keys)
-				item = [conditions[0], city, timestamp]
+				if len(conditions) >= 1:
+					item = [conditions[0], city, timestamp]
 				Response.cases.append(item)
 				return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "."
 			else:
