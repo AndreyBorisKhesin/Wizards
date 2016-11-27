@@ -13,8 +13,8 @@ def hello_monkey():
     resp.message(Response.generateresponse(
     	request.values.get('From', None),
 	request.values.get('Body', None),
+	request.values.get('FromCity', None),
 	time.time()))
-#    resp.message(request.values.get('FromCity', None))
 
     return str(resp)
 
