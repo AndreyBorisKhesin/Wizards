@@ -23,6 +23,8 @@ class Api:
         # Create diagnosis object with initial patient information.
         request = infermedica_api.Diagnosis(sex=sex, age=age)
         for i in range(len(symptoms)):
+            if symptoms[i] is None:
+                continue
             try:
                 request.add_symptom(symptoms[i], 'present')
             except:

@@ -10,7 +10,7 @@ class Symptoms:
         try:
             return Symptoms.symptoms[lower]
         except:
-            x = 0
+            return None
 
 '''
 if __name__ == "__main__":
