@@ -21,6 +21,7 @@ class Person:
         """
         self.phone_number = phone_number
         self.gender = ""
+        self.age = -1
         self.symptoms = []
 
     '''
