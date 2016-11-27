@@ -65,21 +65,27 @@ class Response:
 				if len(cpeep.symptoms) == 0:
 					return "Please enter at least one symptom."
 				keys = []
+				error = []
 				for symptom in cpeep.symptoms:
 					s = Symptoms.Symptoms()
-					keys.append(s.getSymptomKey(symptom))
+					k = s.getSymptomKey(symptom)
+					if s is not None:
+						keys.append(s.getSymptomKey(symptom))
+					else:
+						error.append(symptom)
 				a = Api.Api("male" if cpeep.gender == "m" else "female",
 						cpeep.age)
 				conditions = a.get_conditions(
 						"male" if cpeep.gender == "m" else "female",
-						cpeep.age,
-			   		keys)
-				if len(conditions) >= 1:
+						cpeep.age, keys)
+				if len(conditions) >= 1 and len(error) == 0:
 					item = [conditions[0], city, timestamp]
 					Response.cases.append(item)
 					return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "." + "\n" + "Do you require professional help? Reply with '#' if you want a number to call for professional help."
+				elif len(conditions) >= 1 and len(error) != 0:
+					return "You might have" + ("one of the following (in order of likelyhood):\n" if len(conditions) > 1 else " ") + conditions[0] + ("" if len(conditions) < 2 else (", " + conditions[1])) + ("" if len(conditions) < 3 else (", " + conditions[2])) + "." + "\n" + "Do you require professional help? Reply with '#' if you want a number to call for professional help." + "\n" + + "The following symptoms you entered are not in our database: " + str(error) + ". Please reword the symptoms."
 				else:
-					return "There are no matching conditions for your symptoms."
+					return "There are no matching conditions for your symptoms. \n" + "The following symptoms you entered are not in our database: " + str(error) + ". Please reword the symptoms."
 			elif textmessage1 == "#":
 				return "Please call 519-653-7700 for the Waterloo Regional Police Service (non-emergency)."
 			else:
