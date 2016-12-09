@@ -14,4 +14,4 @@ TextMD uses the _Infermedica_ API to diagnose the possible conditions afflicting
 If the user requests immediate help, TextMD directs a patient to a local
 emergency service telephone number.
 
-TextMD also storers the diagnosed diseases matched to their geographical location for later use by government agencies.
+TextMD also stores the diagnosed diseases matched to their geographical location for later use by government agencies.
